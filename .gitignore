@@ -1,0 +1,94 @@
+############################
+# Build results
+############################
+bin/
+obj/
+out/
+artifacts/
+
+############################
+# Visual Studio
+############################
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+############################
+# Rider / JetBrains
+############################
+.idea/
+*.sln.iml
+
+############################
+# Logs
+############################
+*.log
+logs/
+
+############################
+# NuGet
+############################
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+############################
+# Publish output
+############################
+publish/
+*.publishsettings
+
+############################
+# ASP.NET Scaffolding
+############################
+ScaffoldingReadMe.txt
+
+############################
+# IIS / Web
+############################
+wwwroot/lib/
+node_modules/
+
+############################
+# App settings (tuỳ môi trường)
+############################
+appsettings.Development.json
+appsettings.Local.json
+
+############################
+# Entity Framework
+############################
+Migrations/*.Designer.cs
+*.db
+*.mdf
+*.ldf
+
+############################
+# OS generated files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Test Results
+############################
+TestResults/
+*.trx
+
+############################
+# Coverage
+############################
+coverage/
+*.coverage
+*.coveragexml
+
+############################
+# Docker
+############################
+docker-compose.override.yml
