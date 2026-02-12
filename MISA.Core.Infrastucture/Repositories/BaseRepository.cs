@@ -34,7 +34,7 @@ namespace MISA.Demo.Infrastucture.Repositories
         /// </summary>
         /// <param name="entity">Entity cần thêm</param>
         /// <returns>Số bản ghi bị ảnh hưởng</returns>
-        public async Task<int> DeleteAsync(T entity)
+        public async Task<int> AddAsync(T entity)
         {
             // Lấy danh sách cột và giá trị tương ứng từ entity
             // Bao gồm khóa chính, bỏ qua các giá trị null
