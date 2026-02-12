@@ -1,4 +1,5 @@
 ﻿using MISA.Core.Demo.Dto;
+using MISA.Core.Demo.Helpers;
 using MISA.Core.Demo.Interfaces.IRepositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -33,7 +34,16 @@ namespace MISA.Core.Demo.Interfaces.IServices
         public async Task<ServiceResult<bool>> Add(T data)
         {
             var res = new ServiceResult<bool>();
-            await baseRepository.DeleteAsync(data);
+            try
+            {
+                await baseRepository.AddAsync(data);
+                res.Message = "Add successed!";
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Message = ex.Message;
+            }
             res.Success = true;
             return res;
         }
@@ -46,7 +56,16 @@ namespace MISA.Core.Demo.Interfaces.IServices
         public async Task<ServiceResult<bool>> Delete(string id)
         {
             var res = new ServiceResult<bool>();
-            await baseRepository.DeleteAsync(id);
+            try
+            {
+                await baseRepository.DeleteAsync(id);
+                res.Message = "Delete successed!";
+            }
+            catch (Exception e)
+            {
+                res.Message = e.Message;
+                res.Success = false;
+            }
             res.Success = true;
             return res;
         }
@@ -71,8 +90,13 @@ namespace MISA.Core.Demo.Interfaces.IServices
         public async Task<ServiceResult<T>> GetById(string id)
         {
             var res = new ServiceResult<T>();
-            res.Success = true;
-            res.Data = await baseRepository.GetByIdAsync(id);
+            var data = await baseRepository.GetByIdAsync(id);
+            if (data == null)
+            {
+                res.Success = false;
+                res.Message = $"Not found any {MisaEntityHelper.GetTableName<T>()}";
+            }
+            res.Data = data;
             return res;
         }
 
@@ -84,7 +108,16 @@ namespace MISA.Core.Demo.Interfaces.IServices
         public async Task<ServiceResult<bool>> Update(T data)
         {
             var res = new ServiceResult<bool>();
-            await baseRepository.UpdateAsync(data);
+            try
+            {
+                await baseRepository.UpdateAsync(data);
+                res.Message = "Update successed";
+            }
+            catch (Exception e)
+            {
+                res.Success = false;
+                res.Message = e.Message;
+            }
             res.Success = true;
             return res;
         }

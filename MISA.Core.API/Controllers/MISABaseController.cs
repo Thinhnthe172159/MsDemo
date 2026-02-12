@@ -30,14 +30,14 @@ namespace MISA.Demo.API.Controllers
         public virtual async Task<IActionResult> GetById(string id)
         {
             var res = await baseService.GetById(id);
-            return Ok(res);
+            return res.Success ? Ok(res) : BadRequest(res);
         }
 
         [HttpPost]
         public virtual async Task<IActionResult> Add([FromBody] T data)
         {
             var res = await baseService.Add(data);
-            return Ok(res);
+            return res.Success ? Ok(res) : BadRequest(res);
         }
 
         [HttpPut]
@@ -51,7 +51,7 @@ namespace MISA.Demo.API.Controllers
         public virtual async Task<IActionResult> Delete(string id)
         {
             var res = await baseService.Delete(id);
-            return Ok(res);
+            return  res.Success? Ok(res): BadRequest(res);
         }
     }
 }

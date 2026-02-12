@@ -8,7 +8,7 @@ namespace MISA.Core.Demo.Interfaces.IRepositories
 {
     public interface IBaseRepository<T>
     {
-        Task<int> DeleteAsync(T entity);
+        Task<int> AddAsync(T entity);
 
         Task<int> UpdateAsync(T entity);
 
