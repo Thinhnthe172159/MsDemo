@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MISA.Core.API/MISA.Demo.API.csproj" />
+  <Project Path="MISA.Core.Demo/MISA.Demo.Core.csproj" />
+  <Project Path="MISA.Core.Infrastucture/MISA.Demo.Infrastucture.csproj" />
+</Solution>
